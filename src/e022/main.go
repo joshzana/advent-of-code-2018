@@ -1,9 +1,9 @@
 package main
 
 import (
+	"../helpers"
 	"fmt"
 	"log"
-	"../helpers"
 )
 
 // https://adventofcode.com/2018/day/2#part2

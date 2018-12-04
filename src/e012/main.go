@@ -1,10 +1,10 @@
 package main
 
 import (
+	"../helpers"
 	"fmt"
 	"log"
 	"strconv"
-	"../helpers"
 )
 
 // https://adventofcode.com/2018/day/1#part2
