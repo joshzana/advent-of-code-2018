@@ -9,15 +9,15 @@ import (
 
 // https://adventofcode.com/2018/day/2
 func main() {
-	closer, err := os.Open("input.txt")
+	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer closer.Close()
+	defer file.Close()
 
 	var doubles = 0
 	var triples = 0
-	scanner := bufio.NewScanner(closer)
+	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		chars := make(map[rune]int)
 		for _, c := range scanner.Text() {

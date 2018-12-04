@@ -10,13 +10,13 @@ import (
 
 // https://adventofcode.com/2018/day/1
 func main() {
-	closer, err := os.Open("input.txt")
+	file, err := os.Open("input.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
-	defer closer.Close()
+	defer file.Close()
 
-	scanner := bufio.NewScanner(closer)
+	scanner := bufio.NewScanner(file)
 
 	var sum = 0
 	for scanner.Scan() {

@@ -1,27 +1,15 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
 	"log"
-	"os"
+	"../helpers"
 )
 
 // https://adventofcode.com/2018/day/2#part2
 func main() {
-	closer, err := os.Open("input.txt")
+	lines, err := helpers.ReadAllLines("input.txt")
 	if err != nil {
-		log.Fatal(err)
-	}
-	defer closer.Close()
-
-	scanner := bufio.NewScanner(closer)
-	var lines []string
-	for scanner.Scan() {
-		lines = append(lines, scanner.Text())
-	}
-
-	if err := scanner.Err(); err != nil {
 		log.Fatal(err)
 	}
 
