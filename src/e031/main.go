@@ -3,11 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/scritchley/orc"
 	"log"
 	"os"
-	"strconv"
 	"strings"
+	"../helpers"
 )
 
 const Size = 1000
@@ -15,14 +14,6 @@ const Size = 1000
 type claim struct {
 	x, y          int
 	width, height int
-}
-
-func mustAtoi(s string) int {
-	i, err := strconv.Atoi(s)
-	if err != nil {
-		log.Fatal(err)
-	}
-	return i
 }
 
 // https://adventofcode.com/2018/day/3
@@ -43,7 +34,7 @@ func main() {
 		f := strings.FieldsFunc(scanner.Text(), func(r rune) bool {
 			return strings.ContainsRune("#@x,: ", r)
 		})
-		c := claim{mustAtoi(f[1]), mustAtoi(f[2]), mustAtoi(f[3]), mustAtoi(f[4])}
+		c := claim{helpers.MustAtoi(f[1]), helpers.MustAtoi(f[2]), helpers.MustAtoi(f[3]), helpers.MustAtoi(f[4])}
 
 		for i := c.x; i < c.x+c.width; i++ {
 			for j := c.y; j < c.y+c.height; j++ {
