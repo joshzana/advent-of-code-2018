@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"helpers"
 	"log"
 	"os"
 	"strings"
-	"../helpers"
 )
 
 const Size = 1000

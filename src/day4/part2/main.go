@@ -1,8 +1,8 @@
 package main
 
 import (
-	"../helpers"
 	"fmt"
+	"helpers"
 	"log"
 	"sort"
 	"strings"
@@ -65,6 +65,5 @@ func main() {
 		}
 	}
 
-
-	fmt.Println("ID * minute = ", maxGuard * maxMinute)
+	fmt.Println("ID * minute = ", maxGuard*maxMinute)
 }

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"../helpers"
 	"fmt"
+	"helpers"
 	"log"
 	"sort"
 	"strings"
