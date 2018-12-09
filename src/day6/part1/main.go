@@ -1,17 +1,12 @@
 package main
 
 import (
+	"day6"
 	"fmt"
 	"helpers"
 	"log"
 	"math"
-	"strings"
 )
-
-type point struct {
-	x int
-	y int
-}
 
 // https://adventofcode.com/2018/day/6
 func main() {
@@ -21,21 +16,8 @@ func main() {
 	}
 
 	// Make array of points and calculate the size of the overall space
-	points := make(map[int]point)
-	var maxX int
-	var maxY int
-
-	for i, l := range lines {
-		strs := strings.Split(l, ", ")
-		p := point{helpers.MustAtoi(strs[0]), helpers.MustAtoi(strs[1])}
-		points[i] = p
-		if p.x > maxX {
-			maxX = p.x
-		}
-		if p.y > maxY {
-			maxY = p.y
-		}
-	}
+	points := make(map[int]day6.Point)
+	maxX, maxY := day6.ParseLines(lines, points)
 
 	// make grid of nearest point ids, with 0 for tie
 	// Note the coords are flipped so the output matches the webpage - grid[y][x]
@@ -50,7 +32,7 @@ func main() {
 			var minI int
 			var minDist = math.MaxInt32
 			for i, p := range points {
-				d := dist(p.x, p.y, x, y)
+				d := dist(p.X, p.Y, x, y)
 
 				distMap[d]++
 
